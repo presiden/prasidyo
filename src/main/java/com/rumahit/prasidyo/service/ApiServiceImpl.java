@@ -76,17 +76,15 @@ public class ApiServiceImpl implements ApiService {
 
 		return result;
 	}
-
+	
 	@Override
-	public Object getObject() {
-		Object object = new Object();
-		return object;
+	public List<Product> getListProduct() {
+		return productRepo.findAll();
 	}
 
 	@Override
-	public List<Object> getListObject() {
-		List<Object> objectList = new ArrayList<>();
-		return objectList;
+	public Product getProduct(Long id) {
+		return productRepo.findById(id).get();
 	}
 
 }

@@ -43,7 +43,7 @@ public class ApiController {
 	@GetMapping("/product/{id}")
 	public ResponseEntity<?> getProduct(@PathVariable Long id) {
 		try {
-			Product product = apiService.getProduct(id);
+			Product product = apiService.getObject(id);
 			return new ResponseEntity<>(product, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
@@ -53,7 +53,7 @@ public class ApiController {
 	@GetMapping("/product-list")
 	public ResponseEntity<?> getProductList() {
 		try {
-			List<Product> productList = apiService.get();
+			List<Product> productList = apiService.getListObject();
 			return new ResponseEntity<>(productList, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
