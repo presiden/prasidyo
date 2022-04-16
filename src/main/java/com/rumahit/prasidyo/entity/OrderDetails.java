@@ -1,5 +1,7 @@
 package com.rumahit.prasidyo.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "order_details")
-public class OrderDetails {
+public class OrderDetails implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,6 +25,7 @@ public class OrderDetails {
 
 	@ManyToOne
 	@JoinColumn(name = "order_id", referencedColumnName = "id")
+	@JsonIgnore
 	private Order order;
 
 	private int quantity;

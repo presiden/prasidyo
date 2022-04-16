@@ -8,35 +8,37 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "user")
+@Table(name = "employee", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
+		@UniqueConstraint(columnNames = "email") })
 public class User {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
 	@Size(max = 30)
 	private String username;
-	
+
 	@NotBlank
 	@Size(max = 50)
 	private String fullname;
-	
+
 	@NotBlank
 	@Size(max = 50)
 	@Email
 	private String email;
-	
+
 	@Size(max = 16)
 	private String phone;
-	
+
 	@NotBlank
 	@Size(max = 120)
 	private String password;
@@ -46,6 +48,11 @@ public class User {
 
 	@Column(name = "updated_date")
 	private Date updatedDate;
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getId() {
 		return id;
@@ -114,6 +121,5 @@ public class User {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
+
 }
