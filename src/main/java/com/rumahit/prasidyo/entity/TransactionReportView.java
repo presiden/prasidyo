@@ -27,7 +27,7 @@ public class TransactionReportView implements Serializable {
 	private Long id;
 	
 	@Column(name = "created_date")
-	private Date createdDate;
+	private String createdDate;
 
 	@Column(name = "company_name")
 	private String companyName;
@@ -52,11 +52,11 @@ public class TransactionReportView implements Serializable {
 		this.id = id;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 
