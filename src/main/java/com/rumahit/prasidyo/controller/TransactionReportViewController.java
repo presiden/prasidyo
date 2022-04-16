@@ -16,7 +16,7 @@ import com.rumahit.prasidyo.service.TransactionReportViewService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/transaction-report")
+@RequestMapping("/report")
 public class TransactionReportViewController {
 
 	@Autowired

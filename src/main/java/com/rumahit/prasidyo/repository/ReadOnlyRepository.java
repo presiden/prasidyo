@@ -12,7 +12,7 @@ import org.springframework.data.repository.Repository;
 
 @NoRepositoryBean
 //@Repository
-public interface ReadOnlyRepository<T, ID extends Serializable> extends Repository<T, ID> {
+public interface ReadOnlyRepository<T, ID> extends Repository<T, ID> {
 //	public interface ReadOnlyRepository<T, ID extends Serializable> extends Repository<T, ID> {
 	List<T> findAll();
 

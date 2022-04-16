@@ -26,8 +26,8 @@ public class TransactionReportViewServiceImpl implements TransactionReportViewSe
 
 	@Override
 	public List<TransactionReportView> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
+		List<TransactionReportView> res = repo.findAll(sort);
+		return res;
 	}
 
 	@Override

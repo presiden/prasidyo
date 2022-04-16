@@ -1,5 +1,6 @@
 package com.rumahit.prasidyo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,14 +13,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Immutable;
 
+
+@Immutable
 @Entity
-//@Immutable
 @Table(name = "transaction_report_view")
-public class TransactionReportView {
+public class TransactionReportView implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-//	private UUID id = UUID.randomUUID();
 	
 	@Column(name = "created_date")
 	private Date createdDate;
@@ -102,5 +107,10 @@ public class TransactionReportView {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 }
